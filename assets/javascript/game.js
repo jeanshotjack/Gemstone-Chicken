@@ -16,12 +16,31 @@ $(document).ready(function () {
     $("#computer").append(computer);
     console.log(computer);
 
-    // set reset function
-    // new random number, append new number, assign new crystal numbers, reset and append user total
+    function reset() {
+        var computer = [Math.floor(Math.random() * 101) + 19];
+        $("#computer").append(computer);
+        num1 = Math.floor(Math.random() * 12) + 1;
+        num2 = Math.floor(Math.random() * 12) + 1;
+        num3 = Math.floor(Math.random() * 12) + 1;
+        num4 = Math.floor(Math.random() * 12) + 1;
+        var user = 0;
+        $("#user").text(user);
+    }
 
-    // set winner/loser function
-    // add wins/losses, signal winner, reset 
+    function winner () {
+        win++;
+        $("#win").text(win);
+        alert("WINNER");
+        reset();
+    }
 
+
+    function loser () {
+        loss++;
+        $("#loss").text(loss);
+        alert("LOSER");
+        reset();
+    }
 
 
     $("#num1").on("click", function () {
@@ -38,7 +57,6 @@ $(document).ready(function () {
     });
     $("#num3").on("click", function () {
         user = user + num3;
-        // user + num1; // fix so it actually adds instead of just sticking the number on
         console.log(user);
         $("#user").text(user);
     });
@@ -47,6 +65,14 @@ $(document).ready(function () {
         console.log(user);
         $("#user").text(user);
     });
+
+    if (user === computer) {
+        winner();
+    }
+
+    else if (user > computer) {
+        loser();
+    }
 
     // if else statements for winner and loser
 });
