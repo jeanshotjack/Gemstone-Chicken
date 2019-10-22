@@ -19,18 +19,18 @@ $(document).ready(function () {
     function reset() {
         var computer = [Math.floor(Math.random() * 101) + 19];
         $("#computer").append(computer);
+        console.log(computer);
         num1 = Math.floor(Math.random() * 12) + 1;
         num2 = Math.floor(Math.random() * 12) + 1;
         num3 = Math.floor(Math.random() * 12) + 1;
         num4 = Math.floor(Math.random() * 12) + 1;
-        var user = 0;
+        user = 0;
         $("#user").text(user);
     }
 
     function winner () {
         win++;
         $("#win").text(win);
-        alert("WINNER");
         reset();
     }
 
@@ -38,20 +38,16 @@ $(document).ready(function () {
     function loser () {
         loss++;
         $("#loss").text(loss);
-        alert("LOSER");
         reset();
     }
 
-
     $("#num1").on("click", function () {
         user = user + num1;
-        // user + num1; // fix so it actually adds instead of just sticking the number on
         console.log(user);
         $("#user").text(user);
     });
     $("#num2").on("click", function () {
         user = user + num2;
-        // user + num1; // fix so it actually adds instead of just sticking the number on
         console.log(user);
         $("#user").text(user);
     });
@@ -73,6 +69,4 @@ $(document).ready(function () {
     else if (user > computer) {
         loser();
     }
-
-    // if else statements for winner and loser
 });
