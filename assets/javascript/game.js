@@ -41,7 +41,7 @@ $(document).ready(function () {
     }
 
     function scoreChecker() {
-        if (user === computer) {
+        if (user == computer) {
             winner();
             console.log("Winner");
         }
